@@ -1,6 +1,7 @@
 package com.pichincha.customerservice.application.customer;
 
 import com.pichincha.customerservice.application.customer.dtos.CustomerDTO;
+import com.pichincha.customerservice.application.customer.exceptions.CustomerNotFoundException;
 import com.pichincha.customerservice.infrastructure.db.entities.CustomerEntity;
 import com.pichincha.customerservice.infrastructure.db.services.CustomerDbService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,12 +26,12 @@ public class CrudCustomerUseCase {
     public CustomerDTO getCustomerById(Long id) {
         Optional<CustomerEntity> customerEntity = customerDbService.findCustomerById(id);
         return customerEntity.map(this::mapToDTO)
-                .orElseThrow(() -> new RuntimeException("Customer not found with ID: " + id));
+                .orElseThrow(() -> new CustomerNotFoundException(id));
     }
 
     public CustomerDTO updateCustomer(Long id, CustomerDTO customerDTO) {
         CustomerEntity existingEntity = customerDbService.findCustomerById(id)
-                .orElseThrow(() -> new RuntimeException("Customer not found with ID: " + id));
+                .orElseThrow(() -> new CustomerNotFoundException(id));
 
         existingEntity.setName(customerDTO.getName());
         existingEntity.setGender(customerDTO.getGender());
