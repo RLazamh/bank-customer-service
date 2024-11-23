@@ -1,6 +1,6 @@
 package com.pichincha.customerservice.presentation.customer;
 
-import com.pichincha.customerservice.application.customer.exceptions.BaseException;
+import com.pichincha.customerservice.application.common.exceptions.BaseException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

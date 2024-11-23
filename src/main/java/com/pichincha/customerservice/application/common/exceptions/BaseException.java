@@ -1,4 +1,4 @@
-package com.pichincha.customerservice.application.customer.exceptions;
+package com.pichincha.customerservice.application.common.exceptions;
 
 import lombok.Getter;
 

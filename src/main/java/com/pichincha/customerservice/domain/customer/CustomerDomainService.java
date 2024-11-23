@@ -1,6 +1,6 @@
 package com.pichincha.customerservice.domain.customer;
 
-import com.pichincha.customerservice.application.customer.exceptions.ValidationException;
+import com.pichincha.customerservice.application.common.exceptions.ValidationException;
 import com.pichincha.customerservice.application.customer.dtos.CustomerDTO;
 import org.springframework.stereotype.Service;
 
