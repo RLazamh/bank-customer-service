@@ -2,7 +2,6 @@ package com.pichincha.customerservice.infrastructure.db.services;
 
 import com.pichincha.customerservice.infrastructure.db.entities.CustomerEntity;
 import com.pichincha.customerservice.infrastructure.db.repositories.CustomerRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -12,8 +11,11 @@ import java.util.Optional;
 @Service
 public class CustomerDbService {
 
-    @Autowired
-    private CustomerRepository customerRepository;
+    private final CustomerRepository customerRepository;
+
+    public CustomerDbService(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
+    }
 
     public CustomerEntity saveCustomer(CustomerEntity customerEntity) {
         return customerRepository.save(customerEntity);

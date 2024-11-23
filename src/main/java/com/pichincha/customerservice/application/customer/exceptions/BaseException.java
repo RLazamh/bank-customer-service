@@ -1,5 +1,8 @@
 package com.pichincha.customerservice.application.customer.exceptions;
 
+import lombok.Getter;
+
+@Getter
 public abstract class BaseException extends RuntimeException {
     private final String code;
 
@@ -8,7 +11,4 @@ public abstract class BaseException extends RuntimeException {
         this.code = code;
     }
 
-    public String getCode() {
-        return code;
-    }
 }

@@ -1,7 +1,11 @@
 package com.pichincha.customerservice.infrastructure.db.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter
+@Getter
 @Entity
 @Table(name = "customers")
 public class CustomerEntity extends PersonEntity {
@@ -16,27 +20,4 @@ public class CustomerEntity extends PersonEntity {
     @Column(nullable = false)
     private Boolean status;
 
-    public Long getClientId() {
-        return clientId;
-    }
-
-    public void setClientId(Long clientId) {
-        this.clientId = clientId;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Boolean getStatus() {
-        return status;
-    }
-
-    public void setStatus(Boolean status) {
-        this.status = status;
-    }
 }
