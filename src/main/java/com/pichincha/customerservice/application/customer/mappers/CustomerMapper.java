@@ -19,11 +19,17 @@ public class CustomerMapper {
         return customerDTO;
     }
 
-    public void updateEntityFromDTO(CustomerDTO customerDTO, CustomerEntity customerEntity) {
+    public void updateEntityFromDTO(
+            CustomerDTO customerDTO,
+            CustomerEntity customerEntity
+    ) {
         mapFieldsFromDtoToEntity(customerDTO, customerEntity);
     }
 
-    private static void mapFieldsFromDtoToEntity(CustomerDTO customerDTO, CustomerEntity customerEntity) {
+    private static void mapFieldsFromDtoToEntity(
+            CustomerDTO customerDTO,
+            CustomerEntity customerEntity
+    ) {
         customerEntity.setName(customerDTO.getName());
         customerEntity.setGender(customerDTO.getGender());
         customerEntity.setAge(customerDTO.getAge());
@@ -34,7 +40,10 @@ public class CustomerMapper {
         customerEntity.setStatus(customerDTO.getStatus());
     }
 
-    private static void mapFieldsFromEntityToDto(CustomerEntity customerEntity, CustomerDTO customerDTO) {
+    private static void mapFieldsFromEntityToDto(
+            CustomerEntity customerEntity,
+            CustomerDTO customerDTO
+    ) {
         customerDTO.setName(customerEntity.getName());
         customerDTO.setGender(customerEntity.getGender());
         customerDTO.setAge(customerEntity.getAge());

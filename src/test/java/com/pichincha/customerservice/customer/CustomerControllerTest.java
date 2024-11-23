@@ -57,7 +57,7 @@ class CustomerControllerTest {
         ResponseEntity<CustomerDTO> result = customerController.createCustomer(request);
 
         assertNotNull(result);
-        assertEquals(200, result.getStatusCodeValue());
+        assertEquals(200, result.getStatusCode().value());
         assertNotNull(result.getBody());
         assertEquals("John Doe", result.getBody().getName());
         verify(crudCustomerUseCase, times(1)).createCustomer(any(CustomerDTO.class));
@@ -75,7 +75,7 @@ class CustomerControllerTest {
         ResponseEntity<CustomerDTO> result = customerController.getCustomerById(customerId);
 
         assertNotNull(result);
-        assertEquals(200, result.getStatusCodeValue());
+        assertEquals(200, result.getStatusCode().value());
         assertNotNull(result.getBody());
         assertEquals("Jane Doe", result.getBody().getName());
         verify(crudCustomerUseCase, times(1)).getCustomerById(customerId);
@@ -96,7 +96,7 @@ class CustomerControllerTest {
         ResponseEntity<List<CustomerDTO>> result = customerController.getAllCustomers();
 
         assertNotNull(result);
-        assertEquals(200, result.getStatusCodeValue());
+        assertEquals(200, result.getStatusCode().value());
         assertNotNull(result.getBody());
         assertEquals(2, result.getBody().size());
         verify(crudCustomerUseCase, times(1)).getAllCustomers();

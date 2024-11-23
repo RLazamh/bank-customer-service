@@ -9,7 +9,6 @@ import com.pichincha.customerservice.infrastructure.db.services.CustomerDbServic
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -37,26 +36,20 @@ public class CrudCustomerUseCase {
     }
 
     public CustomerDTO getCustomerById(Long id) {
-        Optional<CustomerEntity> customerEntity = customerDbService.findCustomerById(id);
-        return customerEntity.map(customerMapper::toDTO)
-                .orElseThrow(() -> new CustomerNotFoundException(id));
+        CustomerEntity customerEntity = findCustomerOrThrow(id);
+        return customerMapper.toDTO(customerEntity);
     }
 
     public CustomerDTO updateCustomer(Long id, CustomerDTO customerDTO) {
         customerDomainService.validateCustomerData(customerDTO);
-
-        CustomerEntity existingEntity = customerDbService.findCustomerById(id)
-                .orElseThrow(() -> new CustomerNotFoundException(id));
-
+        CustomerEntity existingEntity = findCustomerOrThrow(id);
         customerMapper.updateEntityFromDTO(customerDTO, existingEntity);
         CustomerEntity updatedEntity = customerDbService.saveCustomer(existingEntity);
         return customerMapper.toDTO(updatedEntity);
     }
 
     public void deleteCustomer(Long id) {
-        if (customerDbService.findCustomerById(id).isEmpty()) {
-            throw new CustomerNotFoundException(id);
-        }
+        findCustomerOrThrow(id);
         customerDbService.deleteCustomerById(id);
     }
 
@@ -65,5 +58,10 @@ public class CrudCustomerUseCase {
         return customers.stream()
                 .map(customerMapper::toDTO)
                 .collect(Collectors.toList());
+    }
+
+    private CustomerEntity findCustomerOrThrow(Long id) {
+        return customerDbService.findCustomerById(id)
+                .orElseThrow(() -> new CustomerNotFoundException(id));
     }
 }
