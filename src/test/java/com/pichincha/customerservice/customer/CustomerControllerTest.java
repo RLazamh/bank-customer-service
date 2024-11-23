@@ -3,6 +3,7 @@ package com.pichincha.customerservice.customer;
 import com.pichincha.customerservice.application.customer.CrudCustomerUseCase;
 import com.pichincha.customerservice.application.customer.dtos.CustomerDTO;
 import com.pichincha.customerservice.presentation.customer.CustomerController;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -16,17 +17,26 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class CustomerControllerTest {
-
     @Mock
     private CrudCustomerUseCase crudCustomerUseCase;
 
     @InjectMocks
     private CustomerController customerController;
 
+    private AutoCloseable mocks;
+
     @BeforeEach
     void setUp() {
-        MockitoAnnotations.openMocks(this);
+        mocks = MockitoAnnotations.openMocks(this);
     }
+
+    @AfterEach
+    void tearDown() throws Exception {
+        if (mocks != null) {
+            mocks.close();
+        }
+    }
+
 
     @Test
     void testCreateCustomer() {
