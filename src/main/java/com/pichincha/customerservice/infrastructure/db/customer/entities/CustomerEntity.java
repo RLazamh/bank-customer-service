@@ -1,5 +1,6 @@
-package com.pichincha.customerservice.infrastructure.db.entities;
+package com.pichincha.customerservice.infrastructure.db.customer.entities;
 
+import com.pichincha.customerservice.infrastructure.db.person.entities.PersonEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,10 +15,10 @@ public class CustomerEntity extends PersonEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long clientId;
 
-    @Column(nullable = false)
+    @Column(name = "password",nullable = false)
     private String password;
 
-    @Column(nullable = false)
+    @Column(name = "status" , nullable = false)
     private Boolean status;
 
 }

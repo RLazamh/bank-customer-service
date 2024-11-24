@@ -4,8 +4,8 @@ import com.pichincha.customerservice.application.customer.dtos.CustomerDTO;
 import com.pichincha.customerservice.application.customer.exceptions.CustomerNotFoundException;
 import com.pichincha.customerservice.application.customer.mappers.CustomerMapper;
 import com.pichincha.customerservice.domain.customer.CustomerDomainService;
-import com.pichincha.customerservice.infrastructure.db.entities.CustomerEntity;
-import com.pichincha.customerservice.infrastructure.db.services.CustomerDbService;
+import com.pichincha.customerservice.infrastructure.db.customer.entities.CustomerEntity;
+import com.pichincha.customerservice.infrastructure.db.customer.services.CustomerDbService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

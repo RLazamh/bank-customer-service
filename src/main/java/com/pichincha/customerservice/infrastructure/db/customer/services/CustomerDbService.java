@@ -1,7 +1,7 @@
-package com.pichincha.customerservice.infrastructure.db.services;
+package com.pichincha.customerservice.infrastructure.db.customer.services;
 
-import com.pichincha.customerservice.infrastructure.db.entities.CustomerEntity;
-import com.pichincha.customerservice.infrastructure.db.repositories.CustomerRepository;
+import com.pichincha.customerservice.infrastructure.db.customer.entities.CustomerEntity;
+import com.pichincha.customerservice.infrastructure.db.customer.repositories.CustomerRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

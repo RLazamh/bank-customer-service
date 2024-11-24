@@ -1,4 +1,4 @@
-package com.pichincha.customerservice.infrastructure.db.entities;
+package com.pichincha.customerservice.infrastructure.db.person.entities;
 
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;

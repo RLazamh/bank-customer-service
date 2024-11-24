@@ -1,7 +1,7 @@
 package com.pichincha.customerservice.application.customer.mappers;
 
 import com.pichincha.customerservice.application.customer.dtos.CustomerDTO;
-import com.pichincha.customerservice.infrastructure.db.entities.CustomerEntity;
+import com.pichincha.customerservice.infrastructure.db.customer.entities.CustomerEntity;
 import org.springframework.stereotype.Component;
 
 @Component

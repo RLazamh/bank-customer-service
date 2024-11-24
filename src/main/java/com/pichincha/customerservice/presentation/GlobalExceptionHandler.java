@@ -1,4 +1,4 @@
-package com.pichincha.customerservice.presentation.customer;
+package com.pichincha.customerservice.presentation;
 
 import com.pichincha.customerservice.application.common.exceptions.BaseException;
 import org.springframework.http.HttpStatus;

@@ -1,6 +1,6 @@
-package com.pichincha.customerservice.infrastructure.db.repositories;
+package com.pichincha.customerservice.infrastructure.db.customer.repositories;
 
-import com.pichincha.customerservice.infrastructure.db.entities.CustomerEntity;
+import com.pichincha.customerservice.infrastructure.db.customer.entities.CustomerEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
