@@ -78,6 +78,14 @@ To run the `customer-service` microservice locally, follow these steps:
    http://localhost:3000/customer
 ---
 
+## Postman Collection
+
+You can find the Postman collection for testing the `account-service` endpoints at the link below:
+
+- [Bank Customer Collection](https://drive.google.com/file/d/1QjG2CYQyiCxODFBCNd6OAnQtcN9-C5QI/view?usp=sharing)
+
+---
+
 ## CustomerController
 
 The `CustomerController` is a Spring Boot REST controller that exposes CRUD operations for managing customer data. It acts as an intermediary between the API requests and the business logic, delegating the actual operations to the `CrudCustomerUseCase`.
